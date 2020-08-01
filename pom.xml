@@ -27,7 +27,7 @@
 
 	<properties>
 		<swagger-ui.version>2.0.24</swagger-ui.version>
-		<logback-version>1.1.2</logback-version>
+		<logback-version>1.2.3</logback-version>
 		<swagger.url>https://github.com/swagger-api/swagger-ui/archive/v${swagger-ui.version}</swagger.url>
 		<destDir>target/swagger-ui</destDir>
 	</properties>
@@ -127,16 +127,12 @@
 						</goals>
 						<configuration>
 							<target>
-								<echo message="Decompress archive" />
-								<gunzip
-									src="${project.build.directory}/swagger-ui-${swagger-ui.version}.tar.gz" />
-								<untar
-									src="${project.build.directory}/swagger-ui-${swagger-ui.version}.tar"
-									dest="${project.build.directory}" />
-								<echo message="moving resources" />
+								<echo message="Decompress archive"/>
+								<gunzip src="${project.build.directory}/swagger-ui-${swagger-ui.version}.tar.gz"/>
+								<untar src="${project.build.directory}/swagger-ui-${swagger-ui.version}.tar" dest="${project.build.directory}"/>
+								<echo message="moving resources"/>
 								<move todir="${destDir}" overwrite="yes">
-									<fileset
-										dir="${project.build.directory}/swagger-ui-${swagger-ui.version}/dist" />
+									<fileset dir="${project.build.directory}/swagger-ui-${swagger-ui.version}/dist"/>
 								</move>
 							</target>
 						</configuration>
